@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --ink: #17233d;
+    --muted: #7d879b;
+    --primary: #4d55df;
+    --primary-dark: #333cc2;
+    --line: #e4e8f2;
+    --surface: #ffffff;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 34px 18px;
+    display: grid;
+    place-items: center;
+    color: var(--ink);
+    font-family: 'Kanit', Tahoma, sans-serif;
+    background:
+        radial-gradient(circle at 12% 10%, rgba(119, 154, 255, .23), transparent 28%),
+        radial-gradient(circle at 92% 88%, rgba(183, 142, 255, .18), transparent 26%),
+        #f3f5fb;
+}
+button, input { font: inherit; }
+.page-shell {
+    display: grid;
+    grid-template-columns: minmax(300px, .9fr) minmax(390px, 1.1fr);
+    width: min(100%, 1000px);
+    min-height: 650px;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid rgba(255,255,255,.8);
+    border-radius: 28px;
+    box-shadow: 0 28px 80px rgba(36, 48, 96, .16);
+}
+.brand-panel {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 52px 42px;
+    color: white;
+    background: linear-gradient(145deg, #263ba5 0%, #4d55df 52%, #7b65ec 100%);
+}
+.brand-panel::before {
+    position: absolute;
+    z-index: -1;
+    content: "";
+    width: 360px;
+    height: 360px;
+    right: -180px;
+    top: -100px;
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 50%;
+    box-shadow: 0 0 0 32px rgba(255,255,255,.035), 0 0 0 68px rgba(255,255,255,.03);
+}
+.brand-mark {
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    margin-bottom: 36px;
+    border: 1px solid rgba(255,255,255,.45);
+    border-radius: 18px;
+    background: rgba(255,255,255,.16);
+    font-size: 29px;
+    font-weight: 700;
+    box-shadow: 0 10px 28px rgba(16,25,95,.18);
+}
+.eyebrow { margin: 0 0 10px; color: #cbd2ff; font-size: 12px; letter-spacing: 3px; }
+.brand-panel h1 { margin: 0; font-size: clamp(30px, 3.6vw, 42px); line-height: 1.35; font-weight: 600; }
+.brand-copy { max-width: 320px; margin: 18px 0 34px; color: #e0e4ff; line-height: 1.9; font-size: 14px; }
+.feature-list { display: grid; gap: 17px; }
+.feature-list > div { display: flex; align-items: center; gap: 12px; color: #f5f6ff; font-size: 13px; }
+.feature-icon {
+    display: grid; place-items: center; flex: 0 0 25px; height: 25px;
+    border-radius: 50%; background: rgba(104, 231, 190, .22); color: #8ff2cf; font-weight: 700;
+}
+.decor { position: absolute; z-index: -1; border-radius: 50%; background: rgba(255,255,255,.07); }
+.decor-one { width: 220px; height: 220px; bottom: -125px; left: -70px; }
+.decor-two { width: 95px; height: 95px; bottom: 55px; right: -40px; }
+.form-panel { padding: 42px clamp(26px, 5vw, 58px) 28px; }
+.form-heading { margin-bottom: 24px; }
+.form-label {
+    display: inline-block; padding: 5px 12px; margin-bottom: 9px;
+    border-radius: 30px; color: #4b50d7; background: #f0f0ff; font-size: 12px; font-weight: 500;
+}
+.form-heading h2 { margin: 0; font-size: 30px; font-weight: 600; letter-spacing: -.5px; }
+.form-heading p { margin: 5px 0 0; color: var(--muted); font-size: 13px; }
+form { display: grid; }
+label { margin: 13px 0 7px; font-size: 13px; font-weight: 500; }
+.input-wrap {
+    display: flex; align-items: center; min-width: 0; height: 47px;
+    border: 1px solid var(--line); border-radius: 11px; background: #fbfcff;
+    transition: border-color .2s, box-shadow .2s, background .2s;
+}
+.input-wrap:focus-within { border-color: #777cf0; background: white; box-shadow: 0 0 0 4px rgba(77,85,223,.09); }
+.input-icon { width: 42px; flex: 0 0 42px; text-align: center; color: #818ba7; font-size: 17px; }
+.input-wrap input { width: 100%; min-width: 0; height: 100%; padding: 0 9px 0 0; border: 0; outline: 0; background: transparent; color: var(--ink); font-size: 13px; }
+.input-wrap input::placeholder { color: #a4acc0; }
+.input-wrap:has(.toggle-password) input { padding-right: 2px; }
+.toggle-password { flex: 0 0 auto; margin-right: 9px; padding: 4px 6px; border: 0; border-radius: 6px; background: transparent; color: #555bd7; cursor: pointer; font-size: 11px; }
+.toggle-password:hover { background: #eeeeff; }
+form small { margin-top: 5px; color: #8b93a7; font-size: 10px; }
+.password-message { min-height: 16px; margin: 5px 0 0; font-size: 11px; }
+.is-valid { color: #16865f; }
+.is-invalid { color: #d34e5a; }
+.submit-button {
+    display: flex; align-items: center; justify-content: center; gap: 14px;
+    min-height: 49px; margin-top: 22px; padding: 12px 18px; border: 0; border-radius: 11px;
+    color: white; background: linear-gradient(100deg, var(--primary), #7155e9);
+    box-shadow: 0 8px 18px rgba(77,85,223,.23); font-weight: 500; cursor: pointer;
+    transition: transform .2s, box-shadow .2s, filter .2s;
+}
+.submit-button:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(77,85,223,.3); filter: saturate(1.12); }
+.submit-button:active { transform: translateY(0); }
+.privacy-note { display: flex; justify-content: center; align-items: center; gap: 7px; margin: 20px 0 0; color: #79839a; font-size: 11px; }
+.footer-note { margin: 24px 0 0; text-align: center; color: #a1a8b8; font-size: 10px; }
+.alert { padding: 12px 14px; margin: 0 0 15px; border-radius: 10px; font-size: 12px; line-height: 1.7; }
+.alert strong, .alert span { display: block; }
+.alert ul { margin: 5px 0 0; padding-left: 19px; }
+.alert-success { border: 1px solid #b8ebd6; background: #effcf6; color: #14724f; }
+.alert-error { border: 1px solid #ffd0d2; background: #fff4f4; color: #a62d3a; }
+@media (max-width: 760px) {
+    body { padding: 16px 12px; }
+    .page-shell { grid-template-columns: 1fr; width: min(100%, 520px); border-radius: 22px; }
+    .brand-panel { padding: 27px 28px 30px; }
+    .brand-mark { width: 46px; height: 46px; margin-bottom: 18px; border-radius: 14px; font-size: 24px; }
+    .brand-panel h1 { font-size: 30px; }
+    .brand-copy { margin: 12px 0 18px; }
+    .feature-list { gap: 10px; }
+    .form-panel { padding: 30px 27px 25px; }
+}
+@media (max-width: 380px) {
+    .brand-panel { padding: 24px 21px; }
+    .form-panel { padding: 26px 19px 22px; }
+    .form-heading h2 { font-size: 27px; }
+}
